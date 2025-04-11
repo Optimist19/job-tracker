@@ -7,7 +7,8 @@ const prisma = new PrismaClient();
 // request: Request. The "req: Request" you know is not the only argument in the route handler. It is on the only one that gets data for you from the request. The second argument is an object with params, which contains the parameters of the route, as we have "api/job/[id]". It is the [Id] that is the params and  which you will get from here to achieve the functionality of deleting a job or editing a data.
 
 export async function GET(
-  request: NextRequest,
+// export async function GET(
+//   request: NextRequest,
   {
     params
   }: {
@@ -59,7 +60,8 @@ export async function PUT(
 }
 
 export async function DELETE(
-  request: NextRequest,
+// export async function DELETE(
+//   request: NextRequest,
   {
     params
   }: {

@@ -8,6 +8,7 @@ import { GrNetworkDrive } from "react-icons/gr";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Link from "next/link";
 import { Bounce, toast } from "react-toastify";
+import { motion } from "framer-motion";
 
 interface IFormInput {
   jobLocation: string;
@@ -198,7 +199,13 @@ function AllJobsComp() {
         ) : (
           <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-2">
             {filteredJobs.map((job) => (
-              <div key={job.id} className="bg-gray-400 py-[2vh] px-[4%] rounded-2xl">
+              <motion.div
+          key={job.id} className="bg-gray-400 py-[2vh] px-[4%] rounded-2xl"
+              initial={{ y: 0 }}
+              whileHover={{ y: -10 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            >
+              
                 <div className="pb-[4vh]">
                   <p className="font-bold text-[24px]">{job.title}</p>
                   <p className="text-[12px] text-gray-800">{job.company}</p>
@@ -233,7 +240,7 @@ function AllJobsComp() {
                     Delete
                   </button>
                 </div>
-              </div>
+                </motion.div>
             ))}
           </div>
         )}
