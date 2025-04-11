@@ -56,7 +56,7 @@ function EditComp({ id }: { id: string }) {
         }
         
         const jobData: JobData = await response.json();
-        console.log(jobData)
+        // console.log(jobData)
 
         // Populate form with job data
         setValue("title", jobData.title);

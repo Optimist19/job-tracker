@@ -21,14 +21,14 @@ export async function POST(request: Request) {
   
 	try {
 	  const body = await request.json();
-	  console.log(body, "body")
+	//   console.log(body, "body")
 	  const { title, company, location, job_status, job_mode } = body;
   
 	  const existingUser = await prisma.user.findFirst({
 		where: { email: session.user.email }
 	  });
 
-	  console.log(existingUser, "existingUser")
+	//   console.log(existingUser, "existingUser")
 
   
 	  if (existingUser) {
