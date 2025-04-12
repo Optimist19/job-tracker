@@ -44,10 +44,10 @@ function MobileNav() {
           <Link
             href={path.path}
             key={i}
-            className={`flex items-center gap-2 font-semibold py-2 px-[3vw] rounded-xl cursor-pointer
-		  }`}>
-            {path.icon}
-            <button className="cursor-pointer">{path.name}</button>
+            className={`flex justify-center items-center gap-2 font-semibold py-2 px-[3vw] rounded-xl cursor-pointer
+		  }`}  onClick={showNavBarFtn}>
+            <span className="cursor-pointer">{path.icon}</span>
+            {/* <button className="cursor-pointer">{path.name}</button> */}
           </Link>
         );
 	})}

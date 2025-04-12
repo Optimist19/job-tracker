@@ -154,10 +154,10 @@ function AllJobsComp() {
   return (
     <div className="px-[3vw] md:pl-[18vw] pt-[2vh] pr-[3%]">
       <div className="bg-gray-400 py-5 flex justify-center">
-        <form onSubmit={handleSubmit(onSubmit)} className="flex gap-2 items-center">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col sm:flex-row gap-2 w-[100%] sm:items-center sm:justify-center px-4">
           <input
             {...register("jobLocation")}
-            className="bg-white outline-purple-700 rounded-xs px-1"
+            className="bg-white  outline-purple-700 rounded-xs px-1"
             placeholder="Job Location"
           />
 
@@ -173,7 +173,7 @@ function AllJobsComp() {
             <option value="product_management">Product Management</option>
           </select>
 
-          <button type="submit" className="px-[25px] bg-purple-700 rounded-xs">
+          <button type="submit" className="px-[25px] bg-purple-700 rounded-xs text-white">
             Search
           </button>
           
