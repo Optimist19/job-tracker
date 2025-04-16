@@ -16,7 +16,7 @@ async function HomePage() {
     <div>
       <Sidebar />
       <Nav />
-      <div className="bg-gray-50">
+      <div className="">
         <div className="flex-1 flex flex-col overflow-hidden md:pl-[18vw]">
           <Main />
         </div>

@@ -6,7 +6,7 @@ import { Briefcase } from "lucide-react";
 
 function Circles() {
   return (
-	<div className="flex flex-col items-center justify-center h-full">
+	<div className="flex flex-col items-center justify-center h-[100vh]">
 	<div className="relative w-64 h-64">
 
 	  <div className="absolute inset-0 flex items-center justify-center">

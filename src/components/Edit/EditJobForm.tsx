@@ -53,7 +53,7 @@ export default function EditJobForm({ id }: { id: string }) {
         }
         
         const jobData = await response.json();
-        console.log(jobData)
+        // console.log(jobData)
 
         // Populate form with job data
         setValue("title", jobData.title);
@@ -88,7 +88,7 @@ export default function EditJobForm({ id }: { id: string }) {
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     setIsSubmitting(true)
-    console.log(data)
+    // console.log(data)
     try {
       const response = await fetch(`/api/job/${id}`, {
         method: 'PUT',

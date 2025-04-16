@@ -45,7 +45,7 @@ export default function AddJobForm({ modalFtn, setReload }: AddJobFormProps) {
   });
 
   const handleFormSubmit = async (data: FormValues) => {
-    console.log(data);
+    // console.log(data);
     setIsSubmitting(true);
 
     try {

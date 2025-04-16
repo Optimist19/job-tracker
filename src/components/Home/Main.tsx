@@ -64,7 +64,7 @@ function Main() {
     getAllJobs()
   }, [reload])
 
-  console.log(filteredJobs)
+  // console.log(filteredJobs)
 
   function searchLocation(e: React.ChangeEvent<HTMLInputElement>) {
     const query = e.target.value;
