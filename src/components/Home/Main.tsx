@@ -78,7 +78,7 @@ function Main() {
     setFilteredJobs(filtered);
   }
 
-  function searchTitle(e: React.ChangeEvent<HTMLSelectElement>) {
+  function searchTitle(e: React.ChangeEvent<HTMLInputElement>) {
     const query = e.target.value;
     setFilterType(query);
     setHasSearched(true);
@@ -200,17 +200,12 @@ function Main() {
 
           <div className="flex items-center space-x-4">
             <div className="relative">
-              <select
-                className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 ring-1 ring-[#A51CD6] focus:ring-offset-2 focus:ring-[#A51CD6]"
+              <input
+              type="text"
+                className="inline-flex items-center px-2 py-2 rounded-md bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none  border border-[#B0B0B0]"
+                placeholder="Title"
                 {...register("jobType")}
-                onChange={searchTitle}>
-                <option value="all">All</option>
-                <option value="frontend">Frontend</option>
-                <option value="backend">Backend</option>
-                <option value="ui_ux">UI/UX</option>
-                <option value="fullstack">Fullstack</option>
-                <option value="product_management">Product Management</option>
-              </select>
+                onChange={searchTitle} />
             </div>
             <button
               className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#A51CD6] hover:bg-[#A51CD6] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A51CD6] cursor-pointer"

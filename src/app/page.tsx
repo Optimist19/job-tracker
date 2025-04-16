@@ -1,9 +1,17 @@
 import Nav from "@/components/generalComp/Nav";
 import Sidebar from "@/components/generalComp/Sidebar";
+import { auth } from "../../auth";
+import { redirect } from "next/navigation";
 import Main from "@/components/Home/Main";
 import React from "react";
 
-function HomePage() {
+async function HomePage() {
+    const userSession = await auth();
+  
+  if (!userSession?.user) {
+    redirect("/login");
+  }
+
   return (
     <div>
       <Sidebar />
