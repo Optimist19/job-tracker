@@ -16,7 +16,7 @@ export default function MobileNav() {
       {/* Mobile Menu Button */}
       <button
         onClick={toggleNav}
-        className="fixed bottom-4 right-4 z-50 bg-purple-700 p-3 rounded-full shadow-lg md:hidden">
+        className="fixed bottom-4 right-4 z-50 bg-[#A51CD6] p-3 rounded-full shadow-lg md:hidden">
         {isOpen ? (
           <X className="h-6 w-6 text-white" />
         ) : (
