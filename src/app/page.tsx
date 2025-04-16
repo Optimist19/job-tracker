@@ -1,15 +1,17 @@
-//
-
-import Header from "@/components/Home/Header";
+import Nav from "@/components/generalComp/Nav";
+import Sidebar from "@/components/generalComp/Sidebar";
 import Main from "@/components/Home/Main";
 import React from "react";
 
 function HomePage() {
   return (
-    <div className="flex h-screen bg-gray-50">
-      <div className="flex-1 flex flex-col overflow-hidden md:pl-[18vw]">
-      <Header /> 
-      <Main />
+    <div>
+      <Sidebar />
+      <Nav />
+      <div className="bg-gray-50">
+        <div className="flex-1 flex flex-col overflow-hidden md:pl-[18vw]">
+          <Main />
+        </div>
       </div>
     </div>
   );

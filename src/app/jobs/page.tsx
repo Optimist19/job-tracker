@@ -1,5 +1,5 @@
 import React from "react";
-import AllJobsComp from "@/components/AllJobsComp";
+
 import { auth } from "../../../auth";
 import { redirect } from "next/navigation";
 

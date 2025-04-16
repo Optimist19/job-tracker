@@ -1,7 +1,13 @@
 import Link from "next/link"
 import { ArrowLeft, Search, Home } from "lucide-react"
+ import { auth } from "../../auth"
+import { redirect } from "next/navigation";
 
-export default function NotFound() {
+export default async function NotFound() {
+    const userSession = await auth();
+    if (!userSession?.user) {
+      redirect("/login");
+    }
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-lg shadow-lg overflow-hidden">
@@ -56,7 +62,7 @@ export default function NotFound() {
 
         <div className="bg-white px-6 py-2 border-t border-gray-200">
           <Link
-            href="/contact"
+            href="/"
             className="text-purple-600 hover:text-purple-800 text-sm font-medium flex items-center justify-center"
           >
             Home

@@ -13,6 +13,8 @@ import { motion } from "framer-motion";
 import Circles from "./Circles";
 import JobApplicationModal from "./Modal";
 
+
+
 interface IFormInput {
   jobLocation: string;
   jobType: string;
@@ -38,6 +40,11 @@ function Main() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterType, setFilterType] = useState("all");
   const [toggleModal, setToggleModal] = useState(false);
+  //I am using the reload to make this components("/") reloads up on any additional job POST
+  const [reload, setReload] = useState(false);
+
+    
+  
 
   useEffect(() => {
     async function getAllJobs() {
@@ -55,7 +62,7 @@ function Main() {
       }
     }
     getAllJobs()
-  }, [])
+  }, [reload])
 
   console.log(filteredJobs)
 
@@ -165,7 +172,7 @@ function Main() {
 
     // Otherwise, show the job list
     return (
-      <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-2">
+      <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-2 h-[70vh] overflow-y-scroll p-3">
         {filteredJobs.map((job) => (
           <JobCard key={job.id} job={job} onDelete={handleDelete} />
         ))}
@@ -175,17 +182,18 @@ function Main() {
 
   return (
     <div className="">
-      <div>
-        <div className="bg-white px-6 py-4 flex items-center justify-between">
-          <div className="relative w-96">
+      <div className="">
+        
+        <div className="px-6 py-4 flex items-center flex-col md:flex-row  md:items-center gap-2 md:justify-between">
+          <div className="relative w-90">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Search className="h-4 w-4 text-gray-400" />
+              <Search className="h-4 w-4 text-[#B0B0B0]" />
             </div>
             <input
               {...register("jobLocation")}
               type="text"
-              placeholder="Search locations"
-              className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+              placeholder="Search Location"
+              className="block w-full pl-10 pr-3 py-2 border border-[#B0B0B0] rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
               onChange={searchLocation}
             />
           </div>
@@ -193,7 +201,7 @@ function Main() {
           <div className="flex items-center space-x-4">
             <div className="relative">
               <select
-                className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+                className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 ring-1 ring-[#A51CD6] focus:ring-offset-2 focus:ring-[#A51CD6]"
                 {...register("jobType")}
                 onChange={searchTitle}>
                 <option value="all">All</option>
@@ -205,17 +213,17 @@ function Main() {
               </select>
             </div>
             <button
-              className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+              className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#A51CD6] hover:bg-[#A51CD6] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A51CD6] cursor-pointer"
               onClick={modalFtn}>
-              <Plus className="mr-2 h-4 w-4" />
-              Add New Job
+              <Plus className="mr-2 h-4 w-4 text-center" />
+              <span className="hidden lg:block"> Add New Job</span>
             </button>
           </div>
         </div>
       </div>
 
       <div>
-{  toggleModal &&  <JobApplicationModal modalFtn={modalFtn}/>
+{  toggleModal &&  <JobApplicationModal modalFtn={modalFtn} setReload={() => setReload(prev => !prev)}/>
 }      </div>
 
       {/* Main content area */}
@@ -322,7 +330,9 @@ function JobCard({
         </div>
         <div className="flex items-center gap-2  text-[#888888] text-[16px] font-[400]">
           <FaLocationDot />
-          <p>{job.location}</p>
+          <p>{job.location.length < 10
+                      ? job.location
+                      : job.location.slice(0, 30) + "..."}</p>
         </div>
       </div>
       <div className="flex items-center justify-between py-[1vh] text-[#888888] text-[16px] font-[400]">

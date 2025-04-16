@@ -1,185 +1,185 @@
-"use client";
+// "use client";
 
-import { useRouter } from "next/navigation";
-// import React, { useEffect, useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { toast } from "react-toastify";
+// import { useRouter } from "next/navigation";
+// // import React, { useEffect, useState } from "react";
+// import { SubmitHandler, useForm } from "react-hook-form";
+// import { toast } from "react-toastify";
 
-interface IFormInput {
-  position: string;
-  company: string;
-  location: string;
-  jobStatus: string;
-  jobMode: string;
-}
+// interface IFormInput {
+//   position: string;
+//   company: string;
+//   location: string;
+//   jobStatus: string;
+//   jobMode: string;
+// }
 
-function AddJobComp() {
+// function AddJobComp() {
 	
-	// const [email, setEmail] = useState()
-	// const [userId, setUserId] = useState()
-	const router = useRouter()
-  const {
-	register,
-	handleSubmit,
-	formState: { errors },
-  } = useForm<IFormInput>();
+// 	// const [email, setEmail] = useState()
+// 	// const [userId, setUserId] = useState()
+// 	const router = useRouter()
+//   const {
+// 	register,
+// 	handleSubmit,
+// 	formState: { errors },
+//   } = useForm<IFormInput>();
 
 
 
 
-//     useEffect(() => {
-// 	  async function getAllJobs() {
-// 		const data = await fetch("/api/jobs");
-// 		const res = await data.json();
-// 		setEmail(res.email)
-// 		setUserId(res.id)
-// 	}  
-// 	getAllJobs();
-// }, []);
-// console.log(userId)
+// //     useEffect(() => {
+// // 	  async function getAllJobs() {
+// // 		const data = await fetch("/api/jobs");
+// // 		const res = await data.json();
+// // 		setEmail(res.email)
+// // 		setUserId(res.id)
+// // 	}  
+// // 	getAllJobs();
+// // }, []);
+// // console.log(userId)
 
-// 	console.log(email)
-	// console.log(sessionEmail)
+// // 	console.log(email)
+// 	// console.log(sessionEmail)
 
-	const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-		console.log(data)
-		try {
-		  const response = await fetch('/api/job', {
-			method: 'POST',
-			headers: {
-			  'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({
-			  title: data.position,
-			  company: data.company,
-			  location: data.location,
-			  job_status: data.jobStatus,
-			  job_mode: data.jobMode
-			})
-		  });
+// 	const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+// 		console.log(data)
+// 		try {
+// 		  const response = await fetch('/api/job', {
+// 			method: 'POST',
+// 			headers: {
+// 			  'Content-Type': 'application/json',
+// 			},
+// 			body: JSON.stringify({
+// 			  title: data.position,
+// 			  company: data.company,
+// 			  location: data.location,
+// 			  job_status: data.jobStatus,
+// 			  job_mode: data.jobMode
+// 			})
+// 		  });
 	
-		  if (!response.ok) {
-			// toast.error(`${error}`);
-			toast.error('An error occurred');
-return;
-		  }
+// 		  if (!response.ok) {
+// 			// toast.error(`${error}`);
+// 			toast.error('An error occurred');
+// return;
+// 		  }
 	
-		   await response.json();
-		  toast.success('Job added successfully!');
-		  router.push("/all-jobs")
-		} catch (error) {
-		  toast.error('An error occurred');
-		  console.error('Error:', error);
-		}
-	  };
+// 		   await response.json();
+// 		  toast.success('Job added successfully!');
+// 		  router.push("/all-jobs")
+// 		} catch (error) {
+// 		  toast.error('An error occurred');
+// 		  console.error('Error:', error);
+// 		}
+// 	  };
 	
 	
 
-  return (
-	<>
-	<div className="md:pl-[16%] pb-[8vh] pt-[4vh] w-[100%] flex justify-center">
-	  <div className="w-[100%] px-4">
-		<form
-		  onSubmit={handleSubmit(onSubmit)}
-		  className="bg-gray-400 py-[4vh] px-[3vw] rounded-xl "
-		>
-		  <div>
-			<h1 className="font-bold text-[24px] pb-[2vh]">Add Job</h1>
-		  </div>
+//   return (
+// 	<>
+// 	<div className="md:pl-[16%] pb-[8vh] pt-[4vh] w-[100%] flex justify-center">
+// 	  <div className="w-[100%] px-4">
+// 		<form
+// 		  onSubmit={handleSubmit(onSubmit)}
+// 		  className="bg-gray-400 py-[4vh] px-[3vw] rounded-xl "
+// 		>
+// 		  <div>
+// 			<h1 className="font-bold text-[24px] pb-[2vh]">Add Job</h1>
+// 		  </div>
 
-		  <div className="grid md:grid-cols-3 gap-[3vw]">
-			{/* Position */}
-			<div className="grid gap-1">
-			  <label htmlFor="position" className="font-semibold">
-				Position
-			  </label>
-			  <input
-				id="position"
-				{...register("position", { required: "Position is required" })}
-				className="bg-white outline-purple-700 rounded-xs px-1 py-[1vh] pl-[7px]"
-			  />
-			  {errors.position && <p className="text-[10px] text-red-600">{errors.position.message}</p>}
-			</div>
+// 		  <div className="grid md:grid-cols-3 gap-[3vw]">
+// 			{/* Position */}
+// 			<div className="grid gap-1">
+// 			  <label htmlFor="position" className="font-semibold">
+// 				Position
+// 			  </label>
+// 			  <input
+// 				id="position"
+// 				{...register("position", { required: "Position is required" })}
+// 				className="bg-white outline-purple-700 rounded-xs px-1 py-[1vh] pl-[7px]"
+// 			  />
+// 			  {errors.position && <p className="text-[10px] text-red-600">{errors.position.message}</p>}
+// 			</div>
 
-			{/* Company */}
-			<div className="grid gap-1">
-			  <label htmlFor="company" className="font-semibold">
-				Company
-			  </label>
-			  <input
-				id="company"
-				{...register("company", { required: "Company is required" })}
-				className="bg-white outline-purple-700 rounded-xs px-1 py-[1vh] pl-[7px]"
-			  />
-			  {errors.company && <p className="text-[10px] text-red-600">{errors.company.message}</p>}
-			</div>
+// 			{/* Company */}
+// 			<div className="grid gap-1">
+// 			  <label htmlFor="company" className="font-semibold">
+// 				Company
+// 			  </label>
+// 			  <input
+// 				id="company"
+// 				{...register("company", { required: "Company is required" })}
+// 				className="bg-white outline-purple-700 rounded-xs px-1 py-[1vh] pl-[7px]"
+// 			  />
+// 			  {errors.company && <p className="text-[10px] text-red-600">{errors.company.message}</p>}
+// 			</div>
 
-			{/* Location */}
-			<div className="grid gap-1">
-			  <label htmlFor="location" className="font-semibold">
-				Location
-			  </label>
-			  <input
-				id="location"
-				{...register("location", { required: "Location is required" })}
-				className="bg-white outline-purple-700 rounded-xs px-1 py-[1vh] pl-[7px]"
-			  />
-			  {errors.location && <p className="text-[10px] text-red-600">{errors.location.message}</p>}
-			</div>
-		  </div>
+// 			{/* Location */}
+// 			<div className="grid gap-1">
+// 			  <label htmlFor="location" className="font-semibold">
+// 				Location
+// 			  </label>
+// 			  <input
+// 				id="location"
+// 				{...register("location", { required: "Location is required" })}
+// 				className="bg-white outline-purple-700 rounded-xs px-1 py-[1vh] pl-[7px]"
+// 			  />
+// 			  {errors.location && <p className="text-[10px] text-red-600">{errors.location.message}</p>}
+// 			</div>
+// 		  </div>
 
-		  <div className="grid md:grid-cols-3 gap-[3vw] pt-[2vh] justify-center">
-			{/* Job Status */}
-			<div className="grid gap-1">
-			  <label htmlFor="jobStatus" className="font-semibold text-center md:text-left">
-				Job Status
-			  </label>
-			  <select
-				id="jobStatus"
-				{...register("jobStatus", { required: "Job Status is required" })}
-				className="bg-white outline-purple-700 rounded-xs cursor-pointer py-[1vh] px-[7px] appearance-none"
-			  >
-				<option value="">Select Status</option>
-				<option value="pending">Pending</option>
-				<option value="interview">Interview</option>
-				<option value="declined">Declined</option>
-			  </select>
-			  {errors.jobStatus && <p className="text-[10px] text-red-600">{errors.jobStatus.message}</p>}
-			</div>
+// 		  <div className="grid md:grid-cols-3 gap-[3vw] pt-[2vh] justify-center">
+// 			{/* Job Status */}
+// 			<div className="grid gap-1">
+// 			  <label htmlFor="jobStatus" className="font-semibold text-center md:text-left">
+// 				Job Status
+// 			  </label>
+// 			  <select
+// 				id="jobStatus"
+// 				{...register("jobStatus", { required: "Job Status is required" })}
+// 				className="bg-white outline-purple-700 rounded-xs cursor-pointer py-[1vh] px-[7px] appearance-none"
+// 			  >
+// 				<option value="">Select Status</option>
+// 				<option value="pending">Pending</option>
+// 				<option value="interview">Interview</option>
+// 				<option value="declined">Declined</option>
+// 			  </select>
+// 			  {errors.jobStatus && <p className="text-[10px] text-red-600">{errors.jobStatus.message}</p>}
+// 			</div>
 
-			{/* Job Mode */}
-			<div className="grid gap-1">
-			  <label htmlFor="jobMode" className="font-semibold  text-center md:text-left">
-				Job Mode
-			  </label>
-			  <select
-				id="jobMode"
-				{...register("jobMode", { required: "Job Mode is required" })}
-				className="py-[1vh] bg-white outline-purple-700 rounded-xs cursor-pointer"
-			  >
-				<option value="">Select Mode</option>
-				<option value="full time">Full-time</option>
+// 			{/* Job Mode */}
+// 			<div className="grid gap-1">
+// 			  <label htmlFor="jobMode" className="font-semibold  text-center md:text-left">
+// 				Job Mode
+// 			  </label>
+// 			  <select
+// 				id="jobMode"
+// 				{...register("jobMode", { required: "Job Mode is required" })}
+// 				className="py-[1vh] bg-white outline-purple-700 rounded-xs cursor-pointer"
+// 			  >
+// 				<option value="">Select Mode</option>
+// 				<option value="full time">Full-time</option>
 				
-				<option value="part time">Part-time</option>
-			  </select>
-			  {errors.jobMode && <p className="text-[10px] text-red-600">{errors.jobMode.message}</p>}
-			</div>
+// 				<option value="part time">Part-time</option>
+// 			  </select>
+// 			  {errors.jobMode && <p className="text-[10px] text-red-600">{errors.jobMode.message}</p>}
+// 			</div>
 
-			{/* Submit Button */}
-			<div className="flex items-end">
-			  <button
-				className="text-white cursor-pointer rounded-md bg-purple-700 font-[400] py-2 px-4 w-full"
-				type="submit"
-			  >
-				Create Job
-			  </button>
-			</div>
-		  </div>
-		</form>
-	  </div>
-	</div>
-	</>
-  );
-}
+// 			{/* Submit Button */}
+// 			<div className="flex items-end">
+// 			  <button
+// 				className="text-white cursor-pointer rounded-md bg-purple-700 font-[400] py-2 px-4 w-full"
+// 				type="submit"
+// 			  >
+// 				Create Job
+// 			  </button>
+// 			</div>
+// 		  </div>
+// 		</form>
+// 	  </div>
+// 	</div>
+// 	</>
+//   );
+// }
 
-export default AddJobComp;
+// export default AddJobComp;
