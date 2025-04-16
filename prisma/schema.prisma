@@ -13,27 +13,28 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
-
 model User {
   id        String   @id @default(uuid())
-  email     String? 
+  email     String?
   jobs      Job[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model Job {
-  id         String    @id @default(uuid())
+  id         String @id @default(uuid())
   title      String
   company    String
   location   String
   job_status String
   job_mode   String
   userId     String
-  createdAt  DateTime  @default(now())
-  updatedAt  DateTime  @updatedAt
-  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date_applied String @default("2025-01-01")
+job_type     String @default("remote")
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 // model User {

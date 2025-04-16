@@ -5,16 +5,13 @@ import { redirect } from "next/navigation";
 
 async function AllJobs() {
   const session = await auth();
-  if (!session?.user) return redirect("/");
+  if (!session?.user) {
+    return redirect("/login");
+  } else {
+    return redirect("not-found");
+  }
 
-  // const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/jobs`)
-  // const res = await data.json()
-  // console.log(res, "res")
-  return (
-    <div>
-      <AllJobsComp />
-    </div>
-  );
+  return <div>{/* <AllJobsComp /> */}</div>;
 }
 
 export default AllJobs;

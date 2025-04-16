@@ -27,65 +27,65 @@ function EditComp({ id }: { id: string }) {
   const {
     register,
     handleSubmit,
-    setValue,
+    // setValue,
     formState: { errors }
   } = useForm<IFormInput>();
 
   const router = useRouter();
 
-  useEffect(() => {
-    async function getJob() {
-      setIsLoading(true);
-      try {
-        const response = await fetch(`/api/job/${id}`); // Add the ID to the URL
+  // useEffect(() => {
+  //   async function getJob() {
+  //     setIsLoading(true);
+  //     try {
+  //       const response = await fetch(`/api/job/${id}`); // Add the ID to the URL
 
         
-        if (!response.ok) {
-          toast(`Error: ${response.statusText}`, {
-            position: "bottom-right",
-            autoClose: 5000,
-            hideProgressBar: true,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-            transition: Bounce
-          });
-          return;
-        }
+  //       if (!response.ok) {
+  //         toast(`Error: ${response.statusText}`, {
+  //           position: "bottom-right",
+  //           autoClose: 5000,
+  //           hideProgressBar: true,
+  //           closeOnClick: false,
+  //           pauseOnHover: true,
+  //           draggable: true,
+  //           progress: undefined,
+  //           theme: "dark",
+  //           transition: Bounce
+  //         });
+  //         return;
+  //       }
         
-        const jobData: JobData = await response.json();
-        // console.log(jobData)
+  //       const jobData: JobData = await response.json();
+  //       // console.log(jobData)
 
-        // Populate form with job data
-        setValue("title", jobData.title);
-        setValue("company", jobData.company);
-        setValue("location", jobData.location);
-        setValue("jobStatus", jobData.job_status);
-        setValue("jobMode", jobData.job_mode);
-      } catch (error) {
-        console.error("Error fetching job:", error);
-        toast("Failed to load job data. Please try again.", {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: true,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-          transition: Bounce
-        });
-      } finally {
-        setIsLoading(false);
-      }
-    }
+  //       // Populate form with job data
+  //       setValue("title", jobData.title);
+  //       setValue("company", jobData.company);
+  //       setValue("location", jobData.location);
+  //       setValue("jobStatus", jobData.job_status);
+  //       setValue("jobMode", jobData.job_mode);
+  //     } catch (error) {
+  //       console.error("Error fetching job:", error);
+  //       toast("Failed to load job data. Please try again.", {
+  //         position: "bottom-right",
+  //         autoClose: 5000,
+  //         hideProgressBar: true,
+  //         closeOnClick: false,
+  //         pauseOnHover: true,
+  //         draggable: true,
+  //         progress: undefined,
+  //         theme: "dark",
+  //         transition: Bounce
+  //       });
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   }
 
-    if (id) {
-      getJob();
-    }
-  }, [id, setValue]);
+  //   if (id) {
+  //     getJob();
+  //   }
+  // }, [id, setValue]);
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     try {

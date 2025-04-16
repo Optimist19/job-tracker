@@ -3,7 +3,7 @@ import { auth } from "../../auth";
 import React from "react";
 import Image from "next/image";
 import { FaBriefcase } from "react-icons/fa";
-import SignInComp from "./SignInComp";
+import SignInComp from "./login/SignInComp";
 import SignOutComp from "./SignOutComp";
 import MobileNav from "./MobileNav";
 
@@ -21,17 +21,15 @@ async function NavBar() {
         <div className="flex  items-center gap-2 cursor-pointer">
           {!userSession?.user?.name ? <SignInComp /> : <SignOutComp />}
           <div className="p-1">
-
-          <Image
-            src={userSession?.user?.image || "/download.png"}
-            width={50}
-            height={50}
-            alt="user-image"
-            className=""
-            style={{ height: "50px", width: "50px", borderRadius: "50%" }}
+            <Image
+              src={userSession?.user?.image || "/download.png"}
+              width={50}
+              height={50}
+              alt="user-image"
+              className=""
+              style={{ height: "50px", width: "50px", borderRadius: "50%" }}
             />
-            </div>
-
+          </div>
         </div>
       </header>
 

@@ -12,14 +12,18 @@ const userData: Prisma.UserCreateInput[] = [
           company: "Google",
           location: "USA",
           job_status: "declined",
-          job_mode: "full time"
+          job_mode: "full time",
+          date_applied: "2025-04-16",
+          job_type: "remote",
         },
         {
           title: "Backend",
           company: "Facebook",
           location: "Nigeria",
           job_status: "declined",
-          job_mode: "full time"
+          job_mode: "full time",
+          date_applied: "2025-04-16",
+          job_type: "onsite",
         }
       ]
     }
@@ -33,14 +37,18 @@ const userData: Prisma.UserCreateInput[] = [
           company: "Google",
           location: "USA",
             job_status: "declined",
-          job_mode: "full time"
+          job_mode: "full time",
+          date_applied: "2025-04-16",
+          job_type: "hybrid",
         },
         {
           title: "Backend",
           company: "Facebook",
           location: "Nigeria",
-            job_status: "declined",
-          job_mode: "full time"
+          job_status: "declined",
+          job_mode: "full time",
+          date_applied: "2025-04-16",
+          job_type: "onsite",
         }
       ]
     }

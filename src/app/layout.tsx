@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
-import NavBar from "@/components/NavBar";
-import SideBar from "@/components/SideBar";
+// import NavBar from "@/components/NavBar";
+// import SideBar from "@/components/SideBar";
 import ToastComp from "@/components/ToastComp";
+import Sidebar from "@/components/generalComp/Sidebar";
 
 const sans = Open_Sans({
   variable: "--font-open-sans",
@@ -30,9 +31,9 @@ export default function RootLayout({
       <body
         className={`${sans.variable} antialiased`}
       >
-        <NavBar />
+        {/* <NavBar /> */}
         {children}
-        <SideBar />
+        <Sidebar />
         <ToastComp />
       </body>
     </html>
