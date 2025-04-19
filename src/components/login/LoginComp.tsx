@@ -24,10 +24,10 @@ function LoginComp() {
               </h1>
               <LoginForm />
               <div>
-                <h5 className="text-center font-[400] text-[16px] text-[#888888] pb-[2vh]">
+                <h5 className="text-center font-[400] text-[16px] text-[#888888]">
                   OR
                 </h5>
-                <div className="py-[1vh] rounded-md  ring-1 ring-[#B0B0B0] cursor-pointer">
+                <div className="py-[1vh] mt-[16px] rounded-md  ring-1 ring-[#B0B0B0] cursor-pointer">
                   <div className="flex  items-center justify-center gap-2">
                     <Image
                       src="/google.svg"
@@ -35,7 +35,7 @@ function LoginComp() {
                       height={15}
                       alt="google-logo"
                     />
-                    <SignIn />{" "}
+                    <SignIn />
                   </div>
                 </div>
               </div>

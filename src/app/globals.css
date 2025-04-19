@@ -19,6 +19,6 @@
   }
 }
 
-body {
-/* color: #ff0000 */
+input, input::placeholder{
+color: #B0B0B0
 }

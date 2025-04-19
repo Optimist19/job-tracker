@@ -209,9 +209,10 @@ export default function AddJobForm({ modalFtn, setReload }: AddJobFormProps) {
                   handleSelectChange("jobStatus", e)
                 }>
                 <option value="">Select Status</option>
-                <option value="pending">Pending</option>
+                <option value="applied">Applied</option>
                 <option value="interview">Interview</option>
-                <option value="declined">Declined</option>
+                <option value="offered">offered</option>
+                <option value="rejected">Rejected</option>
               </select>
               {errors.jobStatus && (
                 <p className="text-red-500 text-xs mt-1">
